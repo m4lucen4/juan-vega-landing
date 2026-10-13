@@ -1,0 +1,26 @@
+---
+import '../../styles/global.css';
+import '../../styles/project.css';
+import SiteHeader from '../../components/SiteHeader.astro';
+import ProjectDetail from '../../components/ProjectDetail.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="La Riva Sherryhomes: del vino al habitar. Rehabilitación del patrimonio bodeguero de Jerez por Juan Vega Arquitectos." />
+    <meta name="theme-color" content="#f5f2e8" />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <title>La Riva Sherryhomes — Juan Vega Arquitectos</title>
+  </head>
+  <body class="project-detail-page">
+    <a class="skip-link" href="#project-detail-title">Saltar al contenido</a>
+    <SiteHeader />
+    <main>
+      <ProjectDetail />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

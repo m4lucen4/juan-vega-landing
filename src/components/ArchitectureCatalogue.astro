@@ -1,0 +1,29 @@
+---
+import ArchitectureFilters from './ArchitectureFilters.astro';
+import ProjectCard from './ProjectCard.astro';
+import { architectureProjects } from '../data/architecture';
+---
+<section class="architecture-section" aria-labelledby="architecture-title">
+  <div class="architecture-intro">
+    <div class="architecture-heading">
+      <h1 id="architecture-title">Arquitectura</h1>
+      <p class="eyebrow" data-project-count role="status" aria-live="polite" aria-atomic="true">27 proyectos</p>
+    </div>
+    <ArchitectureFilters />
+  </div>
+  <div class="architecture-catalogue" data-view="grid">
+    {architectureProjects.map(project => (
+      <div class="catalogue-item" data-type={project.type} data-status={project.status}>
+        <ProjectCard {...project} href="/arquitectura/proyecto-ejemplo" image={`architecture/${project.image}`} width={360} height={450} />
+      </div>
+    ))}
+  </div>
+  <div class="architecture-empty" data-empty hidden>
+    <p>No hay proyectos con estos filtros.</p>
+    <button type="button" data-reset>Mostrar todos los proyectos</button>
+  </div>
+  <noscript><p class="architecture-no-script">Activa JavaScript para utilizar los filtros y la vista de lista. Todos los proyectos están disponibles en la cuadrícula.</p></noscript>
+</section>
+<script>
+  import '../scripts/architecture';
+</script>

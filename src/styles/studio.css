@@ -1,0 +1,117 @@
+/* Figma 163:399, 1100 × 4820. Grid flow preserves the desktop rhythm without fixing text coordinates. */
+.studio-page { padding-bottom: 14px; }
+.studio-intro { display: flex; justify-content: space-between; align-items: flex-end; height: 150px; padding: 30px var(--page-gutter); border-bottom: 0.5px solid var(--rule); }
+.studio-intro h1 { width: 167px; font-size: 15px; line-height: 18px; font-weight: 700; }
+.studio-intro > p { width: 292px; margin-right: 5.909091vw; font-size: 12px; line-height: 15px; color: #000; }
+.studio-banner { height: 31.818182vw; }
+.studio-workspace { height: 52.090909vw; }
+.studio-image--shaded { position: relative; }
+.studio-image--shaded img { width: 100%; height: 100%; object-fit: cover; }
+.studio-image--shaded::after { content: ''; position: absolute; inset: 0; background: rgb(29 29 27 / 50%); pointer-events: none; }
+.studio-stats { display: grid; grid-template-columns: repeat(4, 1fr); height: 75px; margin: 0; border-bottom: 1px solid var(--rule); }
+.studio-stats > div { padding: 17px var(--page-gutter) 0; }
+.studio-stats > div:not(:last-child) { border-right: 1px solid var(--rule); }
+.studio-stats dt { font-size: 25px; font-weight: 700; line-height: 30px; }
+.studio-stats dd { margin: 0; white-space: nowrap; }
+.studio-labelled-section { display: grid; grid-template-columns: 25% 75%; border-bottom: 1px solid var(--rule); }
+.studio-section-label { padding: 35px var(--page-gutter) 0; border-right: 1px solid var(--rule); }
+.studio-overview { height: 119px; }
+.studio-overview > p { padding: 30px var(--page-gutter) 0 calc(var(--page-gutter) + 1px); font-size: 12px; line-height: 17px; font-weight: 700; }
+.studio-approach__row { display: grid; grid-template-columns: 413fr 412fr; height: 42.636364vw; }
+.studio-approach__row--reverse { grid-template-columns: 413fr 412fr; }
+.studio-approach__row--reverse .studio-approach__photo { grid-column: 2; grid-row: 1; }
+.studio-approach__row--reverse .studio-approach__copy { grid-column: 1; grid-row: 1; }
+.studio-approach__photo { position: relative; overflow: hidden; }
+.studio-approach__photo img { width: 100%; height: 100%; object-fit: cover; }
+.studio-approach__photo--authorship img { position: absolute; height: 156.55%; top: -16.23%; object-fit: fill; }
+.studio-approach__photo--collaboration img { position: absolute; height: 156.56%; top: -46.17%; object-fit: fill; }
+.studio-approach__copy { padding: 16.181818vw var(--page-gutter) 0; }
+.studio-approach__row--reverse .studio-approach__copy { padding-top: 14.363636vw; }
+.studio-approach__copy h3 { font-size: 15px; line-height: 18px; font-weight: 700; text-transform: uppercase; }
+.studio-approach__copy p { margin-top: 7px; font-size: 12px; line-height: 17px; }
+.studio-people { min-height: 122.363636vw; }
+.studio-people__body { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 44px; padding: 3vw var(--page-gutter) 25px; }
+.studio-principals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 29px 10px; }
+.studio-person-card { min-width: 0; }
+.studio-person-card__photo { position: relative; height: 37vw; overflow: hidden; }
+.studio-person-card__photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(29 29 27 / 0%), rgb(29 29 27 / 42%) 48.558%, rgb(29 29 27 / 75%)); pointer-events: none; }
+.studio-person-card__photo img { position: absolute; height: 100%; width: 346.76%; left: -133.54%; max-width: none; }
+.studio-person-card__caption { margin-top: 10px; }
+.studio-person-card h3 { font-size: 15px; font-weight: 700; line-height: 27px; }
+.studio-person-card__role { margin-top: -8px; line-height: 27px; }
+.studio-person-card__biography { margin-top: -10px; font-size: 8px; font-weight: 700; line-height: 16px; text-transform: uppercase; }
+.studio-team { padding: 0; }
+.studio-team > h3 { margin-bottom: 20px; line-height: 17px; }
+.studio-team__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; }
+.studio-team-card { min-width: 0; height: 76px; padding: 15px 19px; border: 1px solid var(--muted); }
+.studio-team-card h3 { font-size: 12px; font-weight: 700; line-height: 19px; letter-spacing: -0.25px; white-space: nowrap; }
+.studio-team-card p { margin-top: 0; line-height: 27px; }
+.studio-services { min-height: 284px; }
+.studio-awards { min-height: 282px; }
+.studio-services ol, .studio-awards ul { list-style: none; margin: 0; padding: 35px var(--page-gutter) 33px; }
+.studio-services ol { display: grid; grid-auto-flow: column; grid-template-rows: repeat(5, 43px); grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 5px; }
+.studio-services li, .studio-awards li { display: flex; align-items: center; gap: 19px; min-width: 0; border-bottom: 1px solid var(--rule); font-size: 10px; font-weight: 700; line-height: 12px; }
+.studio-services li:first-child, .studio-services li:nth-child(6), .studio-awards li:first-child { border-top: 1px solid var(--rule); }
+.studio-list-number { flex: 0 0 20px; padding-left: 2px; color: var(--muted); }
+.studio-awards li { min-height: 42px; }
+.studio-awards .studio-section-label { white-space: nowrap; }
+.studio-awards .studio-list-number { flex-basis: 22px; margin-right: -2px; font-size: 8px; }
+@media (min-width: 1600px) {
+  .studio-approach__copy h3 { font-size: 20px; line-height: 24px; }
+  .studio-approach__copy p { font-size: 16px; line-height: 23px; }
+}
+@media (max-width: 1000px) {
+  .studio-stats > div { padding-inline: 20px; }
+  .studio-stats dd { white-space: normal; font-size: 9px; line-height: 12px; }
+  .studio-intro > p { margin-right: 0; }
+  .studio-section-label { padding-inline: 20px; }
+  .studio-approach__copy { padding-inline: 24px; }
+  .studio-people { min-height: 85vw; }
+  .studio-people__body { gap: 40px; padding-top: 32px; }
+  .studio-principals { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
+  .studio-person-card__photo { height: auto; aspect-ratio: 245 / 407; }
+  .studio-person-card h3 { font-size: 14px; line-height: 20px; }
+  .studio-person-card__role { margin-top: 4px; font-size: 9px; line-height: 15px; }
+  .studio-person-card__biography { margin-top: 6px; font-size: 9px; line-height: 15px; }
+  .studio-team__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .studio-team-card h3 { white-space: normal; line-height: 17px; }
+  .studio-services ol { grid-auto-flow: row; grid-template-rows: none; grid-template-columns: 1fr; }
+  .studio-services li { min-height: 43px; }
+  .studio-services li:nth-child(6) { border-top: 0; }
+  .studio-awards .studio-section-label { white-space: normal; }
+}
+@media (max-width: 600px) {
+  .studio-page { padding-bottom: 0; }
+  .studio-intro { display: block; height: auto; padding: 38px var(--page-gutter); }
+  .studio-intro h1 { width: auto; max-width: 260px; font-size: 25px; line-height: 30px; }
+  .studio-intro > p { width: auto; margin-top: 24px; font-size: 13px; line-height: 19px; }
+  .studio-banner { height: 65vw; }
+  .studio-workspace { height: 80vw; }
+  .studio-stats { height: auto; grid-template-columns: repeat(2, 1fr); }
+  .studio-stats > div { min-height: 98px; padding: 20px; }
+  .studio-stats > div:nth-child(2) { border-right: 0; }
+  .studio-stats > div:nth-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .studio-stats dd { font-size: 10px; line-height: 14px; }
+  .studio-labelled-section { display: block; }
+  .studio-section-label { border: 0; padding: 30px var(--page-gutter) 20px; }
+  .studio-overview { height: auto; }
+  .studio-overview > p { padding: 0 var(--page-gutter) 32px; font-size: 13px; line-height: 19px; }
+  .studio-approach__row, .studio-approach__row--reverse { display: flex; flex-direction: column; height: auto; }
+  .studio-approach__photo { height: 110vw; }
+  .studio-approach__copy, .studio-approach__row--reverse .studio-approach__copy { padding: 32px var(--page-gutter) 42px; }
+  .studio-approach__copy p { font-size: 13px; line-height: 19px; margin-top: 12px; }
+  .studio-people { min-height: 0; }
+  .studio-people__body { padding: 12px var(--page-gutter) 32px; }
+  .studio-principals { grid-template-columns: 1fr; gap: 32px; }
+  .studio-person-card h3 { font-size: 18px; line-height: 25px; }
+  .studio-person-card__role { font-size: 10px; line-height: 17px; }
+  .studio-person-card__biography { font-size: 10px; line-height: 17px; }
+  .studio-team__grid { gap: 10px; }
+  .studio-team-card { min-height: 92px; height: auto; padding: 15px 12px; }
+  .studio-team-card p { font-size: 9px; line-height: 20px; }
+  .studio-services, .studio-awards { min-height: 0; }
+  .studio-services ol, .studio-awards ul { padding: 0 var(--page-gutter) 32px; }
+  .studio-services li, .studio-awards li { min-height: 52px; font-size: 11px; line-height: 16px; }
+  .studio-awards li { padding-block: 12px; align-items: baseline; }
+  .studio-awards .studio-list-number { flex-basis: 24px; font-size: 10px; }
+}

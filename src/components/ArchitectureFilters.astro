@@ -1,0 +1,24 @@
+---
+const types = [
+  ['todos', 'Todos'], ['residencial', 'Residencial'],
+  ['rehabilitacion', 'Rehabilitación'], ['cultural', 'Cultural'],
+];
+const statuses = [
+  ['todos', 'Todos'], ['construido', 'Construido'],
+  ['en-progreso', 'En progreso'], ['proyecto', 'Proyecto'],
+];
+---
+<div class="architecture-toolbar">
+  <div class="architecture-filter" role="group" aria-label="Filtrar por tipo">
+    <span class="architecture-filter__label" aria-hidden="true">Tipo</span>
+    {types.map(([value, label]) => <button type="button" data-filter="type" data-value={value} aria-pressed={value === 'todos'}>{label}</button>)}
+  </div>
+  <div class="architecture-filter" role="group" aria-label="Filtrar por estado">
+    <span class="architecture-filter__label" aria-hidden="true">Estado</span>
+    {statuses.map(([value, label]) => <button type="button" data-filter="status" data-value={value} aria-pressed={value === 'todos'}>{label}</button>)}
+  </div>
+  <div class="architecture-view" role="group" aria-label="Vista de proyectos">
+    <button type="button" data-view="grid" aria-pressed="true">Grid</button>
+    <button type="button" data-view="list" aria-pressed="false">Lista</button>
+  </div>
+</div>

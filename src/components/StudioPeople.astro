@@ -1,0 +1,44 @@
+---
+const principals = [
+  { name: 'Juan Vega', role: 'Arquitecto principal, CEO', image: '/images/studio/juan-vega.jpg' },
+  { name: 'Cristina Álvarez', role: 'Arquitecto', image: null },
+  { name: 'Salvador Rubiales', role: 'Arquitecto', image: null },
+  { name: 'Paola Domouso', role: 'Arquitecto', image: null },
+  { name: 'María González Baro', role: 'Arquitecto', image: null },
+];
+const people = [
+  'Álvaro González Camacho', 'Juan Pedro Herrero', 'Gonzalo Herrero', 'Cayetano Gómez',
+  'Antonio Páez', 'Jesús Rodriguez', 'Alfredo Sampalo', 'María Ángeles Moreira', 'Alarife Ingeniería',
+];
+---
+<section class="studio-people studio-labelled-section" aria-labelledby="studio-people-title">
+  <h2 id="studio-people-title" class="eyebrow studio-section-label">Personas</h2>
+  <!-- These cards visually overlap Estudio but are parented under the neighbouring Figma frame. -->
+  <div class="studio-people__body">
+    <div class="studio-principals">
+      {principals.map(person => (
+        <article class:list={['studio-person-card', { 'studio-person-card--placeholder': !person.image }]}>
+          <div class="studio-person-card__photo">
+            {person.image && <img src={person.image} alt="Juan Vega, arquitecto principal del estudio" width="750" height="373" loading="lazy" />}
+          </div>
+          <div class="studio-person-card__caption">
+            <h3>{person.name}</h3>
+            <p class="studio-person-card__role eyebrow">{person.role}</p>
+            <p class="studio-person-card__biography" title="Contenido de biografía pendiente">Biografía —</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div id="equipo" class="studio-team" aria-labelledby="studio-team-title">
+      <h3 id="studio-team-title" class="eyebrow">Equipo</h3>
+      <div class="studio-team__grid">
+        {people.map(name => (
+          <article class="studio-team-card">
+            <h3>{name}</h3>
+            <p class="eyebrow">Arquitecto</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

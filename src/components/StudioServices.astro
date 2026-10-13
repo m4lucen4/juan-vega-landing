@@ -1,0 +1,19 @@
+---
+const services = ['Diseño conceptual', 'Diseño de interior', 'Supervisión de obra', 'Rehabilitación', 'Diseño de producto', ...Array<string>(5).fill('Diseño conceptual')];
+const awards = Array<string>(5).fill('Nombre del premio o reconocimiento — Entidad que lo otorga');
+---
+<section class="studio-services studio-labelled-section" aria-labelledby="studio-services-title">
+  <h2 id="studio-services-title" class="eyebrow studio-section-label">Servicios</h2>
+  <ol>
+    {services.map((name, index) => (
+      <li><span class="studio-list-number">{String(index + 1).padStart(2, '0')}</span>{' '}<span>{name}</span></li>
+    ))}
+  </ol>
+</section>
+<section class="studio-awards studio-labelled-section" aria-labelledby="studio-awards-title">
+  <h2 id="studio-awards-title" class="eyebrow studio-section-label">Reconocimientos / premios</h2>
+  <!-- These are design placeholders, not verified award claims. -->
+  <ul>
+    {awards.map(name => <li><span class="studio-list-number">2026</span>{' '}<span>{name}</span></li>)}
+  </ul>
+</section>

@@ -1,0 +1,32 @@
+---
+import '../styles/global.css';
+import '../styles/studio.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import StudioIntroduction from '../components/StudioIntroduction.astro';
+import StudioApproach from '../components/StudioApproach.astro';
+import StudioPeople from '../components/StudioPeople.astro';
+import StudioServices from '../components/StudioServices.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Conoce el estudio Juan Vega Arquitectos: nuestra forma de trabajar, equipo y servicios de arquitectura, rehabilitación e interiorismo." />
+    <meta name="theme-color" content="#f5f2e8" />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <title>Estudio — Juan Vega Arquitectos</title>
+  </head>
+  <body class="studio-page">
+    <a class="skip-link" href="#studio-page-title">Saltar al contenido</a>
+    <SiteHeader />
+    <main>
+      <StudioIntroduction />
+      <StudioApproach />
+      <StudioPeople />
+      <StudioServices />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

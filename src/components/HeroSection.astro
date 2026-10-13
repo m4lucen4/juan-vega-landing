@@ -1,0 +1,20 @@
+---
+import SiteHeader from './SiteHeader.astro';
+import ArrowLink from './ArrowLink.astro';
+---
+<section id="inicio" class="hero" aria-labelledby="home-title">
+  <img class="hero__image" src="/images/hero.jpg" alt="Interior rehabilitado con estructura de madera y pilares de piedra" width="1600" height="900" fetchpriority="high" />
+  <div class="hero__shade" aria-hidden="true"></div>
+  <SiteHeader />
+  <h1 id="home-title">Juan Vega Arquitectos</h1>
+  <div class="hero__bottom">
+    <div class="hero__pagination" aria-hidden="true">
+      <img src="/images/slide-line.svg" alt="" width="30" height="3" />
+      <img src="/images/slide-line.svg" alt="" width="30" height="3" />
+      <img src="/images/slide-line.svg" alt="" width="30" height="3" />
+      <img src="/images/slide-active.svg" alt="" width="60" height="3" />
+    </div>
+    <p class="hero__meta">Cádiz, España — 2019 — rehabilitación</p>
+    <ArrowLink href="#torre-darenas" variant="hero">Ver proyecto</ArrowLink>
+  </div>
+</section>

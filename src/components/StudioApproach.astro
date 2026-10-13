@@ -1,0 +1,41 @@
+---
+const approach = [
+  {
+    title: 'Autoría',
+    copy: 'Trabajamos cada proyecto como una pieza propia. La escala o el presupuesto no determinan el cuidado. Nos importa encontrar equilibrio entre técnica, sensibilidad y economía para construir espacios duraderos.',
+    image: 'authorship.jpg', width: 900, height: 1600,
+    alt: 'Luz sobre los muros de piedra y las barricas de una bodega',
+    crop: 'authorship',
+  },
+  {
+    title: 'Internacional',
+    copy: 'La experiencia desarrollando proyectos en distintos contextos y países nos ha permitido ampliar la mirada sin perder una forma de trabajar cercana y directa.',
+    image: 'international.jpg', width: 1200, height: 1600,
+    alt: 'Maquetas arquitectónicas y libros en una mesa del estudio',
+    crop: 'international',
+  },
+  {
+    title: 'Colaboración',
+    copy: 'Colaboramos con especialistas en estructuras, instalaciones y diseño para garantizar un trabajo coordinado y preciso. Un equipo que comparte el mismo respeto por el oficio y por los procesos bien hechos.',
+    image: 'collaboration.jpg', width: 878, height: 1561,
+    alt: 'Mesa y sillas de madera frente a las barricas de una bodega',
+    crop: 'collaboration',
+  },
+];
+---
+<section class="studio-approach studio-labelled-section" aria-labelledby="studio-approach-title">
+  <h2 id="studio-approach-title" class="eyebrow studio-section-label">Enfoque</h2>
+  <div class="studio-approach__rows">
+    {approach.map((item, index) => (
+      <article class:list={['studio-approach__row', { 'studio-approach__row--reverse': index === 1 }]}>
+        <div class:list={['studio-approach__photo', `studio-approach__photo--${item.crop}`]}>
+          <img src={`/images/studio/${item.image}`} alt={item.alt} width={item.width} height={item.height} loading="lazy" />
+        </div>
+        <div class="studio-approach__copy">
+          <h3>{item.title}</h3>
+          <p>{item.copy}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

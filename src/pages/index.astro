@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import HeroSection from '../components/HeroSection.astro';
+import StudioSection from '../components/StudioSection.astro';
+import SelectedProjects from '../components/SelectedProjects.astro';
+import PhilosophySection from '../components/PhilosophySection.astro';
+import TeamSection from '../components/TeamSection.astro';
+import ProjectIndex from '../components/ProjectIndex.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Juan Vega Arquitectos. Arquitectura, rehabilitación e interiorismo desde Cádiz. Cada proyecto, desde el criterio y la dedicación." />
+    <meta name="theme-color" content="#f5f2e8" />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <title>Juan Vega Arquitectos — Arquitectura, rehabilitación e interiorismo</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#estudio">Saltar al contenido</a>
+    <main>
+      <HeroSection />
+      <StudioSection />
+      <SelectedProjects />
+      <PhilosophySection />
+      <TeamSection />
+      <ProjectIndex />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

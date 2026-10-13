@@ -1,0 +1,20 @@
+---
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const projectDetail = pathname === '/arquitectura/proyecto-ejemplo';
+const interior = projectDetail || ['/arquitectura', '/estudio', '/contacto'].includes(pathname);
+const assetPath = pathname === '/estudio' ? '/images/studio' : interior ? '/images/architecture' : '/images';
+---
+<header class:list={['site-header', { 'site-header--interior': interior }]}>
+  <a class="brand" href={interior ? '/' : '#inicio'} aria-label="Juan Vega Arquitectos — inicio">
+    <img src={`${assetPath}/logo.png`} alt="Juan Vega Arquitectos" width={interior ? 86 : 94} height="23" />
+  </a>
+  <nav class="site-nav" aria-label="Navegación principal">
+    <a href="/arquitectura" aria-current={pathname === '/arquitectura' || projectDetail ? 'page' : undefined}>Arquitectura</a>
+    <a href="/estudio" aria-current={pathname === '/estudio' ? 'page' : undefined}>Estudio</a>
+    <a href="/contacto" aria-current={pathname === '/contacto' ? 'page' : undefined}>Contacto</a>
+  </nav>
+  <div class="header-utilities">
+    <span lang="en" title="Versión inglesa pendiente en este primer boceto">EN</span>
+    <img src={`${assetPath}/header-symbol.png`} alt="" width="17" height="21" />
+  </div>
+</header>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  variant?: 'section' | 'studio' | 'hero';
+}
+const { href, variant = 'section' } = Astro.props;
+const arrow = variant === 'hero' ? 'hero-arrow.svg' : variant === 'studio' ? 'studio-line.svg' : 'section-arrow.svg';
+---
+<a href={href} class:list={['arrow-link', `arrow-link--${variant}`]}>
+  {variant === 'hero' && <img class="backspace-icon" src="/images/backspace.svg" alt="" width="18" height="18" />}
+  <span><slot /></span>
+  <span class="arrow-link__graphic" aria-hidden="true">
+    <img src={`/images/${arrow}`} alt="" width="44" height="1" />
+    {variant === 'studio' && <img class="backspace-icon" src="/images/backspace.svg" alt="" width="18" height="18" />}
+  </span>
+</a>

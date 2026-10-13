@@ -1,0 +1,35 @@
+---
+const projects = [
+  { name: "Torre D'Arenas", location: 'Cádiz, España', year: '2019', category: 'Residencial', href: '#torre-darenas' },
+  { name: 'La Riva Sherryhomes', location: 'Cádiz, España', year: '2026', category: 'Residencial', href: '#la-riva' },
+  { name: 'Hotel Soho Boutique Catedral', location: 'Sevilla, España', year: '2021', category: 'Restauración', href: '#hotel-soho' },
+  { name: 'Edificio Áncora', location: 'Cádiz, España', year: '2021', category: 'Residencial', href: '#edificio-ancora' },
+  { name: 'Casa Nogal', location: 'Cádiz, España', year: '2022', category: 'Residencial', href: '#casa-nogal' },
+  { name: 'Casa Carabela', location: 'Cádiz, España', year: '2022', category: 'Residencial', href: '#casa-carabela' },
+  { name: '3 Horacias', location: 'Cádiz, España', year: '2024', category: 'Residencial', href: '#tres-horacias' },
+  { name: 'Albareda 20', location: 'Cádiz, España', year: '2022', category: 'Residencial', href: null },
+  { name: '100 viviendas Austro', location: 'Cádiz, España', year: '2022', category: 'Residencial', href: null },
+  { name: 'La Choza 2.0', location: 'Cádiz, España', year: '2022', category: 'Residencial', href: '#la-choza' },
+];
+---
+<section id="proyectos" class="project-index" aria-labelledby="projects-title">
+  <h2 id="projects-title" class="eyebrow">Proyectos</h2>
+  <table>
+    <caption class="visually-hidden">Índice de proyectos del estudio</caption>
+    <thead class="visually-hidden">
+      <tr><th scope="col">Número</th><th scope="col">Proyecto</th><th scope="col">Ubicación</th><th scope="col">Año</th><th scope="col">Tipo</th></tr>
+    </thead>
+    <tbody>
+      {projects.map((project, index) => (
+        <tr>
+          <td class="project-index__number">{String(index + 1).padStart(2, '0')}</td>
+          <th scope="row">{project.href ? <a href={project.href}>{project.name}</a> : project.name}</th>
+          <td class="project-index__location">{project.location}</td>
+          <td class="project-index__year">{project.year}</td>
+          <td class="project-index__category">{project.category}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="project-index__more">Ver X proyectos más —</p>
+</section>

@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+import '../styles/contact.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactDetails from '../components/ContactDetails.astro';
+import ContactReflections from '../components/ContactReflections.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Contacta con Juan Vega Arquitectos para nuevos proyectos, prensa y colaboraciones. Visita nuestro estudio en Jerez de la Frontera." />
+    <meta name="theme-color" content="#f5f2e8" />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
+    <title>Contacto — Juan Vega Arquitectos</title>
+  </head>
+  <body class="contact-page">
+    <a class="skip-link" href="#contact-page-title">Saltar al contenido</a>
+    <SiteHeader />
+    <main>
+      <ContactDetails />
+      <ContactReflections />
+    </main>
+    <SiteFooter />
+  </body>
+</html>

@@ -1,0 +1,25 @@
+---
+const stats = [
+  { value: '2009', label: 'Fundado' },
+  { value: '20', label: 'Personas' },
+  { value: '27+', label: 'Proyectos' },
+  { value: '3', label: 'Presencia en diferentes países' },
+];
+---
+<section class="studio-intro" aria-labelledby="studio-page-title">
+  <h1 id="studio-page-title">Cada encargo comienza escuchando.</h1>
+  <p>Trabajamos la arquitectura como un proceso cercano y compartido, cuidando cada decisión desde la primera idea hasta la obra terminada.</p>
+</section>
+<div class="studio-banner studio-image--shaded">
+  <img src="/images/studio/hero.jpg" alt="Interior de una bodega rehabilitada con estructura de madera y espacios abiertos" width="1600" height="900" fetchpriority="high" />
+</div>
+<dl class="studio-stats">
+  {stats.map(stat => <div><dt>{stat.value}</dt><dd class="eyebrow">{stat.label}</dd></div>)}
+</dl>
+<div class="studio-workspace studio-image--shaded">
+  <img src="/images/studio/workspace.jpg" alt="Mesa de trabajo con maquetas, muestras de materiales y flores en el estudio" width="1600" height="900" loading="lazy" />
+</div>
+<section class="studio-overview studio-labelled-section" aria-labelledby="studio-overview-title">
+  <h2 id="studio-overview-title" class="eyebrow studio-section-label">Estudio</h2>
+  <p>Desde 2009 desarrollamos proyectos de arquitectura, rehabilitación e interiorismo entendiendo cada encargo como una oportunidad única. Nos interesa trabajar con precisión, sin gestos innecesarios, buscando soluciones honestas que respondan a las personas y al lugar.</p>
+</section>

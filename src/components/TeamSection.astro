@@ -1,0 +1,25 @@
+---
+import ArrowLink from './ArrowLink.astro';
+const team = [
+  { name: 'Juan Vega', role: 'Arquitecto principal, CEO', image: '/images/juan-vega.jpg' },
+  { name: 'Cristina Álvarez', role: 'Arquitecto', image: null },
+  { name: 'Salvador Rubiales', role: 'Arquitecto', image: null },
+];
+---
+<section id="equipo" class="team-section" aria-labelledby="team-title">
+  <div class="section-heading">
+    <h2 id="team-title" class="eyebrow">Equipo</h2>
+    <ArrowLink href="/estudio#equipo">Todo el equipo</ArrowLink>
+  </div>
+  <div class="team-grid">
+    {team.map(person => (
+      <article class:list={['team-card', { 'team-card--placeholder': !person.image }]}>
+        {person.image && <img src={person.image} alt="Juan Vega, arquitecto principal del estudio" width="750" height="373" loading="lazy" />}
+        <div class="team-card__caption">
+          <h3>{person.name}</h3>
+          <p>{person.role}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

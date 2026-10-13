@@ -1,0 +1,29 @@
+---
+import ArrowLink from './ArrowLink.astro';
+import ProjectCard from './ProjectCard.astro';
+---
+<section id="arquitectura" class="selected-projects" aria-labelledby="selected-title">
+  <div class="section-heading">
+    <h2 id="selected-title" class="eyebrow">Selección de proyectos</h2>
+    <ArrowLink href="/arquitectura">Todos los proyectos</ArrowLink>
+  </div>
+  <div class="project-grid">
+    <div class="project-row project-row--featured">
+      <ProjectCard id="torre-darenas" name="Torre D'Arenas" image="torre-darenas.jpg" alt="Torre residencial blanca fotografiada contra el cielo azul" location="Cádiz" year="2019" category="residencial" tone="muted" shade width={2704} height={4096} />
+      <ProjectCard id="hotel-soho" name="Hotel Soho Boutique Catedral" image="hotel-soho.jpg" alt="Patio ajardinado con palmeras y una piscina circular" location="Sevilla" year="2021" category="hotelero" width={4096} height={2569} />
+    </div>
+    <div class="project-row project-row--pair">
+      <ProjectCard id="la-riva" name="La Riva Sherryhomes" image="la-riva.jpg" alt="Fachada de una antigua bodega rehabilitada en viviendas" location="Jerez de la fra." year="2026" category="residencial" tone="dark" crop="riva" width={1875} height={2000} />
+      <ProjectCard id="edificio-ancora" name="Edificio Áncora" image="edificio-ancora.jpg" alt="Edificio residencial con terrazas y volúmenes blancos" location="Cádiz" year="2021" category="residencial" width={1333} height={2000} />
+    </div>
+    <div class="project-row project-row--landscape">
+      <ProjectCard id="casa-carabela" name="Casa Carabela" image="casa-carabela.jpg" alt="Vivienda baja rodeada de jardín y piscina" location="El puerto de sta. maría" year="2022" category="residencial" width={4000} height={1800} />
+      <ProjectCard id="tres-horacias" name="3 Horacias" image="tres-horacias.jpg" alt="Conjunto de viviendas blancas con grandes ventanales" location="Salúcar de Barrameda" year="2024" category="residencial" width={4096} height={2731} />
+    </div>
+    <div class="project-row project-row--trio">
+      <ProjectCard id="la-choza" name="La Choza 2.0" image="la-choza.jpg" alt="Vivienda de madera y vidrio abierta al jardín" location="Zahara de los Atunes" year="2023" category="residencial" width={3413} height={4096} />
+      <ProjectCard id="vivienda-andalucia" name="Vivienda Avd. Andalucía" image="vivienda-andalucia.jpg" alt="Vivienda contemporánea de fachada clara junto a una piscina" location="Jerez de la fra." year="2025" category="residencial" width={4000} height={3333} />
+      <ProjectCard id="casa-nogal" name="Casa Nogal" image="casa-nogal.jpg" alt="Vivienda blanca con porche junto a una piscina" location="El puerto de sta. maría" year="2022" category="residencial" width={4000} height={3333} />
+    </div>
+  </div>
+</section>

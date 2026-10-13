@@ -1,0 +1,26 @@
+---
+interface Props {
+  id: string;
+  href?: string;
+  name: string;
+  image: string;
+  alt: string;
+  location: string;
+  year: string;
+  category: string;
+  tone?: 'light' | 'dark' | 'muted';
+  crop?: string;
+  shade?: boolean;
+  width: number;
+  height: number;
+}
+const { id, href, name, image, alt, location, year, category, tone = 'light', crop, shade = false, width, height } = Astro.props;
+---
+<article id={id} class:list={['project-card', `project-card--${tone}`, { 'project-card--shaded': shade, 'project-card--riva': crop === 'riva' }]}>
+  {href && <a class="project-card__link" href={href} aria-label={`Ver proyecto: ${name}`}></a>}
+  <img class="project-card__image" src={`/images/${image}`} alt={alt} width={width} height={height} loading="lazy" />
+  <div class="project-card__caption">
+    <h3>{name}</h3>
+    <p>{location}, España — {year} — {category}</p>
+  </div>
+</article>

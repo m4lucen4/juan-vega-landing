@@ -1,0 +1,14 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.astro/
+
+.codegraph/
+
+# Local environment and tooling
+.env
+.env.*
+!.env.example
+.atl/
+.DS_Store
+npm-debug.log*

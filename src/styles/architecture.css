@@ -1,0 +1,81 @@
+/* Figma 163:188: 1100 × 2200, three full-bleed columns, 450px cards. */
+.architecture-intro { height: 150px; padding: 50px var(--page-gutter) 16px; border-bottom: 0.5px solid var(--rule); }
+.architecture-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.architecture-heading h1 { font-size: 15px; font-weight: 700; line-height: 18px; }
+.architecture-heading > p { text-align: right; }
+.architecture-toolbar { display: flex; align-items: center; gap: 46px; margin-top: 39px; }
+.architecture-filter, .architecture-view { display: flex; align-items: center; gap: 0; }
+.architecture-filter__label { margin-right: 4px; color: #cac5b5; font-size: 10px; line-height: 12px; font-weight: 700; text-transform: uppercase; }
+.architecture-filter:nth-child(2) .architecture-filter__label { margin-right: 10px; }
+.architecture-toolbar button {
+  appearance: none; flex-shrink: 0; height: 26px; padding: 0 5px;
+  border: 1px solid transparent; background: transparent; color: var(--muted);
+  font: inherit; font-size: 10px; line-height: 12px; font-weight: 700; text-transform: uppercase;
+  cursor: pointer;
+}
+.architecture-filter button[aria-pressed='true'] { border-color: var(--ink); color: var(--ink); }
+.architecture-filter button[data-value='todos'] { width: 50px; }
+.architecture-view { margin-left: auto; gap: 10px; }
+.architecture-view button { width: 50px; border-color: var(--ink); color: var(--ink); }
+.architecture-view button[aria-pressed='true'] { background: var(--ink); color: var(--paper); }
+.architecture-toolbar button:focus-visible, .architecture-empty button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.architecture-toolbar button:hover { color: var(--ink); }
+.architecture-view button[aria-pressed='true']:hover { color: var(--paper); }
+.architecture-catalogue { display: grid; grid-template-columns: 359fr 360fr 359fr; column-gap: 11px; row-gap: 10px; }
+.catalogue-item { min-width: 0; height: calc((100vw - 20px) * 450 / 1080); }
+.catalogue-item[hidden], .architecture-empty[hidden] { display: none; }
+.catalogue-item .project-card { height: 100%; aspect-ratio: auto; }
+/* Opt-in full-card links leave the shared homepage cards unchanged. */
+.catalogue-item .project-card__link { position: absolute; inset: 0; z-index: 2; }
+.catalogue-item .project-card__link:focus-visible { outline: 2px solid currentColor; outline-offset: -5px; }
+.catalogue-item .project-card__caption { left: 15px; right: 10px; bottom: 7px; }
+.catalogue-item:nth-child(3n + 2) .project-card__caption { left: 12px; }
+.catalogue-item:nth-child(n + 7) .project-card__caption { bottom: 3px; }
+.catalogue-item:nth-child(n + 10) .project-card__caption { bottom: 2px; }
+.catalogue-item .project-card__caption h3 { font-size: 15px; line-height: 27px; font-weight: 700; }
+.catalogue-item .project-card__caption p { margin-top: -8px; font-size: 10px; line-height: 27px; font-weight: 700; white-space: nowrap; letter-spacing: -0.2px; }
+.architecture-empty { min-height: 300px; padding: 80px var(--page-gutter); text-align: center; }
+.architecture-empty p { font-size: 16px; font-weight: 700; }
+.architecture-empty button { margin-top: 20px; border: 1px solid var(--ink); padding: 12px 18px; background: transparent; color: var(--ink); font: inherit; font-size: 12px; cursor: pointer; }
+.architecture-no-script { padding: 20px var(--page-gutter); font-size: 12px; }
+.architecture-catalogue[data-view='list'] { grid-template-columns: 1fr; gap: 0; padding: 0 var(--page-gutter); }
+.architecture-catalogue[data-view='list'] .catalogue-item { height: auto; border-bottom: 0.5px solid var(--rule); }
+.architecture-catalogue[data-view='list'] .project-card { display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: 24px; padding: 16px 0; color: var(--ink); overflow: visible; }
+.architecture-catalogue[data-view='list'] .project-card__image { width: 110px; height: 100px; object-fit: cover; }
+.architecture-catalogue[data-view='list'] .project-card__caption { position: static; }
+.architecture-catalogue[data-view='list'] .project-card__caption p { margin-top: 4px; color: var(--muted); line-height: 18px; white-space: normal; }
+
+@media (max-width: 1000px) {
+  .architecture-toolbar { gap: 24px; }
+  .architecture-toolbar button { font-size: 9px; padding-inline: 4px; }
+  .architecture-filter__label { font-size: 9px; }
+  .architecture-filter button[data-value='todos'], .architecture-view button { width: 45px; }
+  .catalogue-item .project-card__caption h3 { font-size: 13px; line-height: 22px; }
+  .catalogue-item .project-card__caption p { font-size: 8px; line-height: 18px; white-space: normal; margin-top: 0; }
+}
+@media (min-width: 601px) and (max-width: 800px) {
+  .architecture-intro { height: auto; padding-top: 42px; }
+  .architecture-toolbar { flex-wrap: wrap; gap: 16px 24px; margin-top: 28px; }
+  .architecture-view { margin-left: 0; }
+  .architecture-catalogue { grid-template-columns: 1fr 1fr; }
+  .catalogue-item { height: calc((100vw - 10px) * 0.625); }
+}
+@media (max-width: 600px) {
+  .architecture-intro { height: auto; padding: 32px var(--page-gutter) 20px; }
+  .architecture-heading h1 { font-size: 22px; line-height: 28px; }
+  .architecture-heading > p { font-size: 10px; }
+  .architecture-toolbar { flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 26px; }
+  .architecture-filter { flex-wrap: wrap; row-gap: 6px; }
+  .architecture-filter__label, .architecture-filter:nth-child(2) .architecture-filter__label { flex-basis: 100%; margin-right: 0; font-size: 10px; }
+  .architecture-toolbar button { height: 36px; font-size: 10px; padding-inline: 6px; }
+  .architecture-filter button[data-value='todos'], .architecture-view button { width: 50px; }
+  .architecture-view { margin-left: 0; margin-top: 4px; }
+  .architecture-catalogue { grid-template-columns: 1fr; gap: 12px; }
+  .catalogue-item { height: 125vw; }
+  .catalogue-item .project-card__caption, .catalogue-item:nth-child(3n + 2) .project-card__caption { left: 20px; right: 20px; bottom: 20px; }
+  .catalogue-item .project-card__caption h3 { font-size: 16px; line-height: 23px; }
+  .catalogue-item .project-card__caption p { margin-top: 3px; font-size: 9px; line-height: 15px; letter-spacing: 0; }
+  .architecture-catalogue[data-view='list'] .project-card { grid-template-columns: 80px 1fr; gap: 16px; }
+  .architecture-catalogue[data-view='list'] .project-card__image { width: 80px; height: 90px; }
+  .architecture-catalogue[data-view='list'] .project-card__caption h3 { font-size: 14px; line-height: 19px; }
+}

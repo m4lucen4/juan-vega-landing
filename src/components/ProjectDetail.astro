@@ -1,0 +1,88 @@
+---
+const facts = [
+  ['Ubicación', 'Jerez de la Frontera'], ['Año', '2026'], ['Tipo', 'Residencial'],
+  ['Superficie', '700 m²'], ['Estado', 'Terminado'], ['Cliente', 'Privado'],
+];
+const photos = {
+  facade: ['Fachada blanca de la bodega rehabilitada junto a la calle', 723, 590],
+  roof: ['Cubierta histórica, remates y chimenea de ladrillo', 367, 590],
+  garden: ['Jardín y bancos frente a la bodega Santa Cecilia', 367, 390],
+  pool: ['Fachada de la bodega junto al jardín y la piscina', 723, 570],
+  interior: ['Celosía de madera y arcos en el interior rehabilitado', 723, 590],
+  arches: ['Sucesión de arcos iluminados con un árbol al fondo', 367, 590],
+  pergola: ['Arcos de piedra bajo una pérgola de madera', 367, 326],
+  elevation: ['Alzado de la bodega histórica y su acceso ajardinado', 723, 326],
+  gate: ['Puerta de acceso entre muros de piedra y cal', 360, 527],
+  passage: ['Pasaje residencial bajo vigas de madera abierto al cielo', 360, 527],
+  courtyard: ['Árbol en un patio flanqueado por arcos y celosías', 360, 527],
+  stair: ['Escalera y espacio interior con estructura de madera conservada', 268, 363],
+  landing: ['Distribuidor interior con pavimento de madera y pilar de piedra', 268, 363],
+} as const;
+const galleries = [
+  { className: 'exterior', images: ['facade', 'roof'] as const },
+  { className: 'garden', images: ['garden', 'pool'] as const },
+  { className: 'interior', images: ['interior', 'arches'] as const },
+  { className: 'elevation', images: ['pergola', 'elevation'] as const },
+  { className: 'courtyard', images: ['gate', 'passage', 'courtyard'] as const },
+];
+---
+<section class="project-detail-hero" aria-labelledby="project-detail-title">
+  <img class="project-photo" src="/images/project/hero.png" alt="Fachada blanca y cubiertas de La Riva Sherryhomes" width="1100" height="345" fetchpriority="high" />
+  <div class="project-detail-hero__caption">
+    <h1 id="project-detail-title" tabindex="-1">La Riva Sherryhomes</h1>
+    <p>Cádiz, España — 2026 — Residencial</p>
+  </div>
+</section>
+<dl class="project-facts" aria-label="Ficha técnica del proyecto">
+  {facts.map(([label, value]) => <div><dt>{label}</dt><dd>{value}</dd></div>)}
+</dl>
+<section class="project-introduction" aria-labelledby="project-introduction-title">
+  <h2 id="project-introduction-title">Del vino al habitar</h2>
+  <p>De la Riva Sherryhomes_ Rehabilitación de cascos de bodega “B” y “C” del Conjunto Bodeguero “De La Riva” y adaptación a uso Residencial Vivienda.</p>
+</section>
+{galleries.map(({className, images}, index) => <>
+  <div class:list={['project-gallery', `project-gallery--${className}`]}>
+    {images.map(key => <img class="project-photo" src={`/images/project/${key}.png`} alt={photos[key][0]} width={photos[key][1]} height={photos[key][2]} loading="lazy" />)}
+  </div>
+  {index === 1 && <section class="project-narrative project-narrative--heritage" aria-label="Patrimonio y regeneración urbana">
+    <div>
+      <p>La propuesta La Riva Sherryhomes se presenta como una alternativa consciente a las intervenciones tradicionales en el patrimonio de Jerez, donde históricamente ha primado el derribo sobre la conservación. Este proyecto apuesta decididamente por la regeneración urbana mediante la reutilización de estructuras existentes, transformando un conjunto bodeguero en desuso en un entorno residencial contemporáneo.</p>
+      <p>La intervención no solo recupera el tejido edificado, sino que respeta profundamente la identidad histórica, arquitectónica y paisajística, integrando las nuevas formas de habitar en la memoria del lugar.</p>
+    </div>
+  </section>}
+  {index === 3 && <section class="project-narrative project-narrative--technical" aria-label="Estrategia bioclimática y sostenibilidad">
+    <div>
+      <p>En el desarrollo técnico, la materia arquitectónica se apoya en la puesta en valor de la morfología original y los sistemas constructivos tradicionales. La estrategia principal aprovecha las condiciones de aislamiento térmico propias de la tipología de bodega — originalmente diseñadas para la crianza del vino— como un recurso bioclimático clave para optimizar la eficiencia energética de las viviendas.</p>
+      <p>Esta arquitectura de muros densos se combina con soluciones actuales que garantizan la sostenibilidad del conjunto, convirtiendo el patrimonio en un modelo de economía circular aplicado a la edificación.</p>
+    </div>
+  </section>}
+</>)}
+<section class="project-living" aria-label="La experiencia de habitar">
+  <div class="project-narrative">
+    <p>La experiencia final del habitante se define por la transición del "vino al habitar", donde los espacios libres y jardines regenerados fomentan nuevos modelos de convivencia. La actuación trasciende la escala del edificio para contribuir a la mejora del entorno urbano, garantizando que estas estructuras históricas se integren plenamente en la ciudad contemporánea. Se busca una atmósfera de serenidad y permanencia, donde la huella del pasado dialoga con una vida residencial sostenible y de alta calidad espacial.</p>
+  </div>
+  {(['stair', 'landing'] as const).map(key => <img class="project-photo" src={`/images/project/${key}.png`} alt={photos[key][0]} width={photos[key][1]} height={photos[key][2]} loading="lazy" />)}
+</section>
+<section class="project-plans" aria-labelledby="project-plans-title">
+  <h2 id="project-plans-title" class="eyebrow">Planimetría</h2>
+  <div class="project-plans__grid">
+    {['01','02','03','04','05','06'].map(number => <figure class="project-plan">
+      <a href={`/images/project/plan-${number}.png`} target="_blank" rel="noopener" aria-label={`Abrir lámina ${number} de La Riva Sherryhomes`}>
+        <img src={`/images/project/plan-${number}.png`} alt={`Planimetría de La Riva Sherryhomes — lámina ${number}`} width="337" height="229" loading="lazy" />
+      </a>
+      <figcaption>{number}</figcaption>
+    </figure>)}
+  </div>
+</section>
+<nav class="project-adjacent" aria-label="Proyectos del catálogo">
+  <a href="/arquitectura#torre-darenas">
+    <span class="eyebrow">Anterior</span>
+    <span class="project-adjacent__name">Torre D’Arenas</span>
+    <span class="project-adjacent__meta">Cádiz, España — 2019 — Residencial</span>
+  </a>
+  <a href="/arquitectura#hotel-soho">
+    <span class="eyebrow">Siguiente</span>
+    <span class="project-adjacent__name">Hotel Soho Boutique Catedral</span>
+    <span class="project-adjacent__meta">Sevilla, España — 2021 — Rehabilitación</span>
+  </a>
+</nav>
