@@ -31,12 +31,28 @@ Open `http://localhost:4321`.
 - `src/pages/contacto.astro`: contact details and reflections.
 - `src/components/`: reusable Astro sections, header, footer, cards and filters.
 - `src/data/architecture.ts`: local mock catalogue and filter metadata.
-- `src/styles/global.css`: shared design tokens, home styles and Tailwind import.
+- `src/styles/global.css`: shared design tokens, source-frame layouts and Tailwind import.
+- `src/styles/home.css`: homepage-only readable typography.
+- `src/styles/interior-readability.css`: shared readable typography for the four interior routes.
 - `src/styles/architecture.css`: catalogue and responsive layouts.
 - `src/styles/project.css`: project-detail gallery and responsive layouts.
 - `src/styles/studio.css`: studio screen and responsive layouts.
 - `src/styles/contact.css`: contact screen and responsive layouts.
 - `astro.config.mjs`: Astro configuration and Tailwind Vite plugin.
+
+## Homepage readability
+
+The homepage keeps its original image composition but uses a readable, responsive type scale rather than the source frame's 8–10px labels. Paragraphs start at 16px with 1.6 line spacing; navigation, links, metadata, the project index and footer start at 14px; card headings start at 20px. Text sections grow naturally and captions wrap on narrower screens.
+
+`src/styles/home.css` is scoped to `.home-page`, so interior routes keep their existing typography. Muted text is darker on the paper background, and placeholder team cards use dark text instead of white. Browser tests check eight widths from 320px to 1920px, including both sides of the 600px layout breakpoint, text clipping, section-link overlap and at least 4.5:1 contrast for the checked solid-background text. These checks are not a complete accessibility audit of text over photographs.
+
+## Interior readability
+
+Arquitectura, Estudio, Contacto and project detail use the same reading principles as the homepage: body copy starts at 16px with 1.6 line spacing, secondary text starts at 14px, and headings have a stronger visual hierarchy. Muted text meets 4.5:1 contrast against the paper background. The shared layer in `src/styles/interior-readability.css` is scoped to `.interior-page`; it does not change homepage styling or page content.
+
+Text sections grow naturally instead of retaining the source frame's fixed heights. Catalogue filters use compact, side-by-side dropdowns with 44px minimum control heights; captions, studio names, service rows and contact addresses can wrap. Studio approach rows stack below 801px to avoid narrow reading columns. Photographs, project galleries, mock data, filters, Grid/Lista state, contact destinations and plan links are preserved.
+
+`tests/interior-readability.test.mjs` checks all four screens at 11 widths, including both sides of the 600px, 800px, 900px and 1000px breakpoints. It checks rendered text sizes, leading, clipping, header collisions, solid-background label contrast and active navigation. Existing page tests retain content, interaction, asset and photo-composition assertions while allowing text-driven vertical flow to change. These are not a full accessibility audit of text over photographs.
 
 ## Architecture screen
 
@@ -44,10 +60,10 @@ Open `/arquitectura` from the main navigation or the home's **Todos los proyecto
 
 The catalogue reproduces Figma frame `163:188` in file `A2DaGuh2wyHg1ITawxjFYj`. At 1100px it has three edge-to-edge columns; tablet uses two columns and mobile one. Original images and the interior header assets are self-hosted under `public/images/architecture/`.
 
-- **Tipo** and **Estado** combine to filter the local projects.
+- **Tipo** and **Estado** are labelled native dropdowns placed side by side on mobile and desktop. Their selected values stay visible and combine to filter the local projects.
 - **Grid / Lista** changes the view without clearing filters.
-- An empty result offers **Mostrar todos los proyectos** to reset both filters.
-- Keyboard focus and pressed states identify the active controls. Without JavaScript, all cards remain visible.
+- An empty result offers **Mostrar todos los proyectos** to reset both dropdowns to **Todos** without changing the current Grid/Lista view.
+- Native dropdowns support keyboard selection and visible focus. Grid/Lista retains its pressed states. Without JavaScript, all cards remain visible and the no-script notice explains that filtering requires JavaScript.
 
 This is a mock: the 12 visible Figma cards are implemented. The initial **27 proyectos** label is retained for design fidelity, not a complete database count; filtered counts reflect the actual local subset. Statuses and filter groupings are demonstration data, not verified project facts. Cultural intentionally has no mock projects. All catalogue cards now open the shared project-detail mock. English translation, social links and legal pages remain outside this draft.
 
@@ -75,7 +91,7 @@ Open `/contacto` through **Contacto** on every page. The active route is highlig
 
 The screen follows the supplied 1100 × 1328 Contacto PNG and a separate screenshot of its four contact blocks. Figma MCP was unavailable due its Starter quota. The text layer was outside the exported frame, as on Estudio; all supplied wording is retained, including **Nuevo proyectos:** and the provisional reflections heading. The exact placement of that detached text layer is approximate. The shared footer fills the export's blank footer region.
 
-With explicit user authorization, only the office photograph was cropped from the PNG into `public/images/contact/office.png` (536 × 670). It matches the reference crop but may appear softer on wide/high-DPI displays until an original asset is supplied. The whole design screenshot is never used as the page. Desktop uses two columns and three reflection cards; mobile stacks the contact details, photograph and cards with readable text and wrapping links. Contact copy grows proportionally above the 1100px reference (10px at 1100px, about 13px at 1440px and 17.5px at 1920px), capped at 20px with proportional line spacing; mobile and tablet sizes are unchanged.
+With explicit user authorization, only the office photograph was cropped from the PNG into `public/images/contact/office.png` (536 × 670). It matches the reference crop but may appear softer on wide/high-DPI displays until an original asset is supplied. The whole design screenshot is never used as the page. Desktop uses two columns and three reflection cards; mobile stacks the contact details, photograph and cards with readable text and wrapping links. Contact copy now has a readable 16px minimum on every screen, scales fluidly to 18px and uses 1.6 line spacing. Labels remain bold while paragraphs use normal weight; reflections grow naturally to fit their larger text.
 
 The three repeated **2026** reflections reproduce the supplied draft. No article or reflections-index destinations were supplied, so they remain static content, not fabricated links. Existing social/legal placeholders and English translation remain unchanged.
 
@@ -91,6 +107,7 @@ HOME_URL=http://localhost:4322 node --test tests/project-detail.test.mjs
 HOME_URL=http://localhost:4322 node --test tests/contact.test.mjs
 HOME_URL=http://localhost:4322 node --test tests/studio.test.mjs
 HOME_URL=http://localhost:4322 node --test tests/architecture.test.mjs
+HOME_URL=http://localhost:4322 node --test tests/interior-readability.test.mjs
 HOME_URL=http://localhost:4322 node --test --test-concurrency=1 tests/*.test.mjs
 ```
 

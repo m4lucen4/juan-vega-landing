@@ -9,13 +9,17 @@ const statuses = [
 ];
 ---
 <div class="architecture-toolbar">
-  <div class="architecture-filter" role="group" aria-label="Filtrar por tipo">
-    <span class="architecture-filter__label" aria-hidden="true">Tipo</span>
-    {types.map(([value, label]) => <button type="button" data-filter="type" data-value={value} aria-pressed={value === 'todos'}>{label}</button>)}
+  <div class="architecture-filter">
+    <label class="architecture-filter__label" for="architecture-type">Tipo</label>
+    <select id="architecture-type" data-filter="type">
+      {types.map(([value, label]) => <option value={value}>{label}</option>)}
+    </select>
   </div>
-  <div class="architecture-filter" role="group" aria-label="Filtrar por estado">
-    <span class="architecture-filter__label" aria-hidden="true">Estado</span>
-    {statuses.map(([value, label]) => <button type="button" data-filter="status" data-value={value} aria-pressed={value === 'todos'}>{label}</button>)}
+  <div class="architecture-filter">
+    <label class="architecture-filter__label" for="architecture-status">Estado</label>
+    <select id="architecture-status" data-filter="status">
+      {statuses.map(([value, label]) => <option value={value}>{label}</option>)}
+    </select>
   </div>
   <div class="architecture-view" role="group" aria-label="Vista de proyectos">
     <button type="button" data-view="grid" aria-pressed="true">Grid</button>

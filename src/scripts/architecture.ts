@@ -4,7 +4,7 @@ if (section) {
   const count = section.querySelector<HTMLElement>('[data-project-count]');
   const empty = section.querySelector<HTMLElement>('[data-empty]');
   const items = [...section.querySelectorAll<HTMLElement>('.catalogue-item')];
-  const filters = [...section.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+  const filters = [...section.querySelectorAll<HTMLSelectElement>('select[data-filter]')];
   const views = [...section.querySelectorAll<HTMLButtonElement>('[data-view]')];
   const selection = { type: 'todos', status: 'todos' };
   const update = () => {
@@ -14,9 +14,9 @@ if (section) {
         || (selection.status !== 'todos' && item.dataset.status !== selection.status);
       if (!item.hidden) visible++;
     }
-    for (const button of filters) {
-      const group = button.dataset.filter as keyof typeof selection;
-      button.setAttribute('aria-pressed', String(selection[group] === button.dataset.value));
+    for (const filter of filters) {
+      const group = filter.dataset.filter as keyof typeof selection;
+      filter.value = selection[group];
     }
     if (count) {
       // Preserve the Figma headline for the unfiltered 12-item mock subset.
@@ -25,10 +25,10 @@ if (section) {
     }
     if (empty) empty.hidden = visible !== 0;
   };
-  for (const button of filters) {
-    button.addEventListener('click', () => {
-      const group = button.dataset.filter as keyof typeof selection;
-      selection[group] = button.dataset.value ?? 'todos';
+  for (const filter of filters) {
+    filter.addEventListener('change', () => {
+      const group = filter.dataset.filter as keyof typeof selection;
+      selection[group] = filter.value;
       update();
     });
   }
